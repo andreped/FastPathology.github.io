@@ -22,6 +22,7 @@ jobs:
         rm screenshot.png
         git rm --cached screenshot.png
         git add .
+        ls -haltr
 
     - name: Screenshot Website
       uses: swinton/screenshot-website@v1.x
