@@ -17,10 +17,6 @@ jobs:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
 
-    - name: Delete original screenshot
-      run: |
-        rm screenshot.png
-
     - name: Screenshot Website
       uses: swinton/screenshot-website@v1.x
       with:
@@ -44,8 +40,10 @@ jobs:
         git config --local user.email "andrped94@gmail.com"
         git config --local user.name "andreped"
         git commit -m "Update snapshot of website" -a
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
+        force: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.master }}
