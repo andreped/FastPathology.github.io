@@ -20,6 +20,8 @@ jobs:
     - name: Delete screenshot in remote
       run: |
         rm screenshot.png
+        git config --local user.email "andrped94@gmail.com"
+        git config --local user.name "andreped"
         git rm --cached screenshot.png
         git add .
         git commit -m "removed file temporarily"
@@ -46,8 +48,6 @@ jobs:
       run: |
         ls -haltr
         git add screenshot.png
-        git config --local user.email "andrped94@gmail.com"
-        git config --local user.name "andreped"
         git commit -m "Update snapshot of website" -a
 
     - name: Push changes
