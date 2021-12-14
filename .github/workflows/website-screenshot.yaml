@@ -1,5 +1,18 @@
-- name: Screenshot Website
-  uses: swinton/screenshot-website@v1.x
-  with:
-    source: https://andreped.github.io/fastpathology.github.io/
-    destination: screenshot.png
+name: Screenshot Website
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on:
+
+    steps:
+    - name: Screenshot Website
+      uses: swinton/screenshot-website@v1.x
+      with:
+        source: https://andreped.github.io/fastpathology.github.io/
+        destination: screenshot.png
