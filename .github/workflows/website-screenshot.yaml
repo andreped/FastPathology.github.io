@@ -48,7 +48,7 @@ jobs:
       run: |
         ls -haltr
         git add screenshot.png
-        git commit -m "Update snapshot of website" -a
+        git commit -m "Update snapshot of website [skip ci]" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master
