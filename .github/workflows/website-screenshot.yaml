@@ -17,6 +17,11 @@ jobs:
         source: https://andreped.github.io/fastpathology.github.io/
         destination: screenshot.png
 
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+        fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+
     - name: Download artifact
       uses: dawidd6/action-download-artifact@v2
       with:
@@ -27,11 +32,6 @@ jobs:
         event: push
         name: screenshot
         repo: andreped/fastpathology.github.io
-
-    - uses: actions/checkout@v2
-      with:
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-        fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
 
     - name: Commit files
       run: |
