@@ -9,10 +9,32 @@ on:
 jobs:
   build:
     runs-on: ubuntu-18.04
-    
+
     steps:
     - name: Screenshot Website
       uses: swinton/screenshot-website@v1.x
       with:
         source: https://andreped.github.io/fastpathology.github.io/
         destination: screenshot.png
+
+    - name: Download artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        workflow: website-screenshot.yml
+        workflow_conclusion: success
+        branch: master
+        event: push
+        name: screenshot
+        repo: andreped/fastpathology.github.io
+
+    - name: Uncompress
+      run: |
+        unzip screenshot.zip
+
+    - name: Upload uncompressed file to artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshot.png
+        path: ${{github.workspace}}/screenshot.png
+        if-no-files-found: error
