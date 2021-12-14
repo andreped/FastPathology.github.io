@@ -1,4 +1,4 @@
-name: Screenshot Website
+name: website-screenshot
 
 on:
   push:
