@@ -30,7 +30,7 @@ jobs:
 
     - name: Uncompress
       run: |
-        unzip screenshot.zip
+        ls -haltr
 
     - name: Upload uncompressed file to artifact
       uses: actions/upload-artifact@v2
