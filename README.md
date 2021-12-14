@@ -1,4 +1,4 @@
 FastPathology website
 ===================================
 
-<img src="screenshot.png" width="20%" height="20%">
+<img src="screenshot.png" width="80%" height="80%">
