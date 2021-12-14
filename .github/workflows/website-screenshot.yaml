@@ -20,7 +20,7 @@ jobs:
     - name: Delete screenshot in remote
       run: |
         rm screenshot.png
-        git config --local user.email "andrped94@gmail.com"
+        git config --local user.email "some.bot@gmail.com"
         git config --local user.name "[bot]"
         git rm --cached screenshot.png
         git add .
